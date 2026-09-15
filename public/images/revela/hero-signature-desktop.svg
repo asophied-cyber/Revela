@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Emplacement éditorial RÉVÉLA</title><desc id="desc">Un horizon lumineux abstrait réservé au futur visuel photographique.</desc>
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#111a43"/><stop offset=".58" stop-color="#7180b5"/><stop offset="1" stop-color="#efc6b8"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#fff"/><stop offset=".18" stop-color="#ffd8c8" stop-opacity=".92"/><stop offset="1" stop-color="#ffd8c8" stop-opacity="0"/></radialGradient>
+ <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7d83b4"/><stop offset="1" stop-color="#161d46"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<ellipse cx="1024" cy="390" rx="352" ry="250" fill="url(#light)" filter="url(#blur)"/>
+<circle cx="1024" cy="390" r="14" fill="#fffdf8"/>
+<path d="M0 790 190 650 330 735 515 485 690 705 855 555 1030 730 1250 500 1430 690 1600 570 1600 1000 0 1000Z" fill="url(#land)" opacity=".62"/>
+<path d="M0 790 Q 400 620 768 780 T 1600 730 V 1000 H0Z" fill="#1a224c" opacity=".78"/>
+<path d="M-80 580 C 352 350, 768 780, 1680 430" fill="none" stroke="#ffe2d3" stroke-opacity=".58" stroke-width="3"/>
+<path d="M-80 630 C 528 480, 976 690, 1680 380" fill="none" stroke="#e4e2ff" stroke-opacity=".42"/>
+
+</svg>

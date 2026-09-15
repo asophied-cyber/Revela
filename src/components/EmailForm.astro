@@ -1,31 +1,31 @@
 <div class="form-shell" data-signup>
   <form class="signup-form" novalidate>
     <div class="form-copy">
-      <p class="eyebrow">A first passage</p>
-      <h2>Enter <em>The Thought Revolution</em></h2>
-      <p class="intro">Receive the editorial preview and become part of the first RÉVÉLA circle.</p>
-      <p class="placeholder-tag">Provisional invitation — final release details to come</p>
+      <p class="eyebrow">Un premier passage</p>
+      <h2>Entrez dans <em>The Thought Revolution</em></h2>
+      <p class="intro">Recevez l’aperçu éditorial et rejoignez le premier cercle de RÉVÉLA.</p>
+      <p class="placeholder-tag">Invitation provisoire — détails de parution à venir</p>
     </div>
     <div class="fields">
-      <label for="email">Your email address</label>
+      <label for="email">Votre adresse email</label>
       <div class="input-row">
         <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
         <button type="submit">
-          <span class="button-label">Receive the preview</span>
+          <span class="button-label">Recevoir l’aperçu</span>
           <span aria-hidden="true">↗</span>
         </button>
       </div>
-      <p class="form-note">Demo only — your address will not be sent or stored.</p>
+      <p class="form-note">Démonstration uniquement — votre adresse ne sera ni envoyée ni conservée.</p>
       <p class="form-error" role="alert" aria-live="polite"></p>
     </div>
   </form>
 
   <div class="success" hidden tabindex="-1">
     <span class="success-orbit" aria-hidden="true"></span>
-    <p class="eyebrow">The doorway is open</p>
-    <h2>You are part of the beginning.</h2>
-    <p>In the final experience, your edition of <em>The Thought Revolution</em> will meet you here and in your inbox.</p>
-    <a class="demo-download" href="#the-book" aria-disabled="true">Ebook access · available at launch</a>
+    <p class="eyebrow">La porte est ouverte</p>
+    <h2>Vous faites partie du commencement.</h2>
+    <p>Dans l’expérience finale, votre édition de <em>The Thought Revolution</em> vous attendra ici et dans votre boîte mail.</p>
+    <a class="demo-download" href="#the-book" aria-disabled="true">Accès à l’ebook · disponible au lancement</a>
   </div>
 </div>
 
@@ -40,7 +40,7 @@
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!input?.validity.valid) {
-      if (error) error.textContent = 'Please enter a valid email address.';
+      if (error) error.textContent = 'Veuillez saisir une adresse email valide.';
       input?.focus();
       return;
     }
@@ -48,7 +48,7 @@
     if (error) error.textContent = '';
     if (button) {
       button.disabled = true;
-      button.querySelector('.button-label')!.textContent = 'Opening…';
+      button.querySelector('.button-label')!.textContent = 'Ouverture…';
     }
 
     window.setTimeout(() => {

@@ -1,0 +1,37 @@
+---
+interface Props {
+  src: string;
+  mobileSrc?: string;
+  alt: string;
+  class?: string;
+  position?: string;
+  loading?: 'eager' | 'lazy';
+  priority?: boolean;
+}
+
+const {
+  src,
+  mobileSrc,
+  alt,
+  class: className,
+  position = '50% 50%',
+  loading = 'lazy',
+  priority = false,
+} = Astro.props;
+---
+
+<picture class:list={['editorial-image', className]} style={`--image-position: ${position}`}>
+  {mobileSrc && <source media="(max-width: 620px)" srcset={mobileSrc} />}
+  <img
+    src={src}
+    alt={alt}
+    loading={loading}
+    fetchpriority={priority ? 'high' : 'auto'}
+    decoding="async"
+  />
+</picture>
+
+<style>
+  .editorial-image { display: block; position: absolute; inset: 0; overflow: hidden; }
+  img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: var(--image-position); }
+</style>
