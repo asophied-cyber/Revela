@@ -1,0 +1,102 @@
+---
+interface Props {
+  label?: string;
+  compact?: boolean;
+}
+
+const { label = 'A luminous sphere symbolising the union of heart and mind', compact = false } = Astro.props;
+---
+
+<div class:list={['light-system', { compact }]} role="img" aria-label={label}>
+  <span class="orbit orbit-one"></span>
+  <span class="orbit orbit-two"></span>
+  <span class="orbit orbit-three"></span>
+  <span class="sphere">
+    <span class="mind"></span>
+    <span class="heart"></span>
+    <span class="union"></span>
+  </span>
+  <span class="satellite satellite-one"></span>
+  <span class="satellite satellite-two"></span>
+</div>
+
+<style>
+  .light-system {
+    --system-size: min(57vw, 43rem);
+    position: relative;
+    width: var(--system-size);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    filter: drop-shadow(0 2rem 5rem rgba(144, 166, 230, 0.22));
+  }
+
+  .light-system.compact { --system-size: min(37vw, 25rem); }
+
+  .sphere {
+    position: relative;
+    width: 51%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.56);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 54% 50%, rgba(255,255,255,.98) 0 2%, rgba(255,221,209,.82) 4%, transparent 18%),
+      radial-gradient(circle at 36% 28%, rgba(224,224,255,.9), transparent 42%),
+      radial-gradient(circle at 70% 70%, rgba(239,170,176,.78), transparent 39%),
+      linear-gradient(145deg, rgba(186,211,244,.94), rgba(112,111,171,.8) 54%, rgba(245,194,179,.95));
+    box-shadow:
+      inset -2rem -3rem 5rem rgba(63, 63, 119, 0.25),
+      inset 2rem 2rem 4rem rgba(255, 255, 255, 0.4),
+      0 0 5rem rgba(215, 204, 251, 0.4),
+      0 0 9rem rgba(239, 182, 176, 0.2);
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  .sphere::before {
+    content: '';
+    position: absolute;
+    inset: -30%;
+    background: conic-gradient(from 30deg, transparent, rgba(255,255,255,.3), transparent 35%, rgba(239,185,190,.35), transparent 70%);
+    animation: turn 18s linear infinite;
+  }
+
+  .mind, .heart, .union { position: absolute; border-radius: 50%; }
+  .mind {
+    width: 49%; height: 49%; left: 18%; top: 17%;
+    border: 1px solid rgba(247, 248, 255, 0.54);
+    box-shadow: inset 0 0 2rem rgba(175, 195, 255, 0.38);
+  }
+  .heart {
+    width: 44%; height: 44%; right: 16%; bottom: 14%;
+    border: 1px solid rgba(255, 221, 218, 0.52);
+    box-shadow: inset 0 0 2rem rgba(253, 175, 177, 0.32);
+  }
+  .union {
+    width: 11%; aspect-ratio: 1; left: 48%; top: 47%;
+    background: white;
+    box-shadow: 0 0 1rem white, 0 0 2.8rem #ffd8c8, 0 0 5rem #ffd2c1;
+  }
+
+  .orbit { position: absolute; inset: 11%; border: 1px solid rgba(240, 241, 255, 0.28); border-radius: 50%; }
+  .orbit::after {
+    content: ''; position: absolute; width: 0.42rem; aspect-ratio: 1; top: 17%; left: 10%; border-radius: 50%;
+    background: var(--pearl); box-shadow: 0 0 1.3rem var(--pearl);
+  }
+  .orbit-one { transform: rotate(18deg) scaleY(.66); animation: orbit-one 22s linear infinite; }
+  .orbit-two { inset: 4%; transform: rotate(74deg) scaleY(.74); animation: orbit-two 28s linear infinite reverse; }
+  .orbit-three { inset: 18%; transform: rotate(126deg) scaleY(.58); }
+  .satellite { position: absolute; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 0 1rem white; }
+  .satellite-one { width: .35rem; height: .35rem; left: 8%; top: 46%; }
+  .satellite-two { width: .2rem; height: .2rem; right: 13%; top: 26%; }
+
+  @keyframes breathe { 50% { transform: scale(1.025); filter: brightness(1.08); } }
+  @keyframes turn { to { transform: rotate(360deg); } }
+  @keyframes orbit-one { to { transform: rotate(378deg) scaleY(.66); } }
+  @keyframes orbit-two { to { transform: rotate(434deg) scaleY(.74); } }
+
+  @media (max-width: 720px) {
+    .light-system { --system-size: min(102vw, 32rem); }
+    .light-system.compact { --system-size: min(80vw, 22rem); }
+  }
+</style>
