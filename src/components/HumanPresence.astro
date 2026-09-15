@@ -1,0 +1,96 @@
+---
+interface Props {
+  variant?: 'duo' | 'single';
+  label?: string;
+}
+
+const {
+  variant = 'duo',
+  label = 'Two androgynous human profiles joined by light between mind and heart',
+} = Astro.props;
+const id = `presence-${variant}`;
+---
+
+<figure class:list={['human-presence', variant]}>
+  <svg viewBox="0 0 820 920" role="img" aria-label={label}>
+    <defs>
+      <linearGradient id={`${id}-skin-a`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f7d8ce" />
+        <stop offset=".46" stop-color="#bb8190" />
+        <stop offset="1" stop-color="#4d527f" />
+      </linearGradient>
+      <linearGradient id={`${id}-skin-b`} x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e8c2b3" />
+        <stop offset=".52" stop-color="#9a718b" />
+        <stop offset="1" stop-color="#394368" />
+      </linearGradient>
+      <radialGradient id={`${id}-heart`}>
+        <stop offset="0" stop-color="#fff" />
+        <stop offset=".14" stop-color="#ffe8d7" />
+        <stop offset=".42" stop-color="#efa8a4" stop-opacity=".72" />
+        <stop offset="1" stop-color="#efa8a4" stop-opacity="0" />
+      </radialGradient>
+      <filter id={`${id}-glow`} x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="15" result="blur" />
+        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+    </defs>
+
+    <g class="atmosphere" fill="none" stroke="rgba(238,231,255,.34)">
+      <ellipse cx="410" cy="470" rx="355" ry="224" />
+      <ellipse cx="410" cy="470" rx="292" ry="345" transform="rotate(61 410 470)" />
+      <path d="M38 580C206 401 592 350 797 548" />
+    </g>
+
+    <g class="person person-a">
+      <path fill={`url(#${id}-skin-a)`} d="M403 829C337 790 263 782 160 806c10-97 48-154 105-195 40-29 60-69 61-116-39-38-56-98-48-161 10-87 64-147 136-144 63 3 105 54 101 124-2 31-14 55-35 74l-20 18c-18 17-26 41-23 65 5 42 34 75 62 103 42 43 59 124 52 255H403Z" />
+      <path class="face-line" d="M415 213c-49 32-69 85-58 144 5 28 22 46 45 57-13 32-8 66 18 91" />
+      <path class="eye-line" d="M363 337c17 7 33 6 48-4" />
+      <path class="hair-line" d="M299 339c-31-72 12-166 100-169 61-2 102 45 111 101-47-58-131-60-211 68Z" />
+    </g>
+
+    <g class="person person-b">
+      <path fill={`url(#${id}-skin-b)`} d="M417 829c-7-131 10-212 52-255 28-28 57-61 62-103 3-24-5-48-23-65l-20-18c-21-19-33-43-35-74-4-70 38-121 101-124 72-3 126 57 136 144 8 63-9 123-48 161 1 47 21 87 61 116 57 41 95 98 105 195-103-24-177-16-243 23H417Z" />
+      <path class="face-line" d="M553 213c49 32 69 85 58 144-5 28-22 46-45 57 13 32 8 66-18 91" />
+      <path class="eye-line" d="M605 337c-17 7-33 6-48-4" />
+      <path class="hair-line" d="M669 339c31-72-12-166-100-169-61-2-102 45-111 101 47-58 131-60 211 68Z" />
+    </g>
+
+    <g class="inner-light" filter={`url(#${id}-glow)`}>
+      <circle cx="410" cy="516" r="132" fill={`url(#${id}-heart)`} />
+      <circle cx="410" cy="516" r="12" fill="#fffaf4" />
+      <path d="M410 516C377 435 374 323 405 235M410 516c36-84 42-191 9-281" fill="none" stroke="#ffe6d5" stroke-width="4" />
+      <circle cx="405" cy="235" r="8" fill="#f9f7ff" />
+      <circle cx="419" cy="235" r="8" fill="#f9f7ff" />
+    </g>
+
+    <g class="living-ribbons" fill="none" stroke-linecap="round">
+      <path d="M43 612C210 466 299 675 456 584s208-129 330-17" stroke="#ffd2c1" stroke-width="4" />
+      <path d="M64 651c177-98 236 74 374-4 123-70 216-183 337-98" stroke="#d9d6ff" stroke-width="2" />
+      <path d="M121 558c111-81 185-73 285-5 118 80 212 42 298-25" stroke="#fff" stroke-opacity=".72" />
+    </g>
+  </svg>
+  <figcaption><span>mind</span><i></i><span>heart</span><i></i><span>presence</span></figcaption>
+</figure>
+
+<style>
+  .human-presence { position: relative; width: min(52vw, 46rem); margin: 0; }
+  svg { display: block; width: 100%; overflow: visible; filter: drop-shadow(0 2rem 4rem rgba(6, 10, 42, .38)); }
+  .person { opacity: .97; }
+  .face-line, .eye-line, .hair-line { fill: none; stroke: rgba(255,240,236,.5); stroke-width: 2; stroke-linecap: round; }
+  .hair-line { stroke: rgba(33,38,76,.42); stroke-width: 5; }
+  .atmosphere { transform-origin: center; animation: orbit-drift 24s linear infinite; }
+  .inner-light { animation: living-light 7s ease-in-out infinite; }
+  .living-ribbons path { stroke-dasharray: 18 8 95 7; animation: ribbon-flow 14s linear infinite; }
+  .living-ribbons path:nth-child(2) { animation-duration: 19s; animation-direction: reverse; }
+  figcaption { position: absolute; inset: auto 7% 5%; display: flex; align-items: center; justify-content: center; gap: .8rem; color: rgba(255,255,255,.55); font-size: .5rem; letter-spacing: .2em; text-transform: uppercase; }
+  figcaption i { width: 2rem; height: 1px; background: rgba(255,255,255,.25); }
+  .single .person-b { opacity: .28; transform: translateX(35px); }
+  .single { width: min(42vw, 36rem); }
+
+  @keyframes orbit-drift { to { transform: rotate(360deg); } }
+  @keyframes living-light { 50% { opacity: .83; transform: scale(1.035); transform-origin: 50% 56%; } }
+  @keyframes ribbon-flow { to { stroke-dashoffset: -128; } }
+
+  @media (max-width: 800px) { .human-presence { width: min(90vw, 40rem); } }
+</style>
