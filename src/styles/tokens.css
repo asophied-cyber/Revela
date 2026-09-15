@@ -1,0 +1,21 @@
+:root {
+  --sky: #abc8eb;
+  --indigo: #666b9f;
+  --deep-indigo: #24294f;
+  --lavender: #d4d0e8;
+  --rose: #e7bdc2;
+  --peach: #f2c5b4;
+  --pearl: #faf8f5;
+  --rose-gold: #b97f78;
+  --ink: #292943;
+  --muted: #656579;
+  --mist: #e4e3ee;
+  --line: rgba(48, 49, 77, 0.15);
+
+  --font-body: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: Didot, "Bodoni 72", "Times New Roman", serif;
+
+  --page-gutter: clamp(1.5rem, 5vw, 5.5rem);
+  --section-space: clamp(7rem, 11vw, 11rem);
+  --radius-large: clamp(1.25rem, 3vw, 2.5rem);
+}
