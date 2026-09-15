@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 760" role="img" aria-labelledby="title desc">
+<title id="title">Emplacement des trois mouvements</title><desc id="desc">Triptyque atmosphérique abstrait réservé à la future photographie éditoriale.</desc>
+<defs><linearGradient id="sky" x2="1" y2="1"><stop stop-color="#171f4d"/><stop offset=".45" stop-color="#7d83b5"/><stop offset=".72" stop-color="#d2c9e5"/><stop offset="1" stop-color="#f1c3b3"/></linearGradient><radialGradient id="g"><stop stop-color="#fff"/><stop offset=".16" stop-color="#ffe2d3" stop-opacity=".9"/><stop offset="1" stop-color="#ffe2d3" stop-opacity="0"/></radialGradient><filter id="b"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<rect width="1800" height="760" fill="url(#sky)"/><circle cx="900" cy="355" r="270" fill="url(#g)" filter="url(#b)"/>
+<path d="M0 620 185 490 330 570 510 335 690 565 890 400 1070 585 1270 350 1450 565 1610 430 1800 555V760H0Z" fill="#28305e" opacity=".72"/>
+<path d="M-50 460C310 270 540 670 930 440s590-150 920-20" fill="none" stroke="#ffe0d0" stroke-opacity=".7" stroke-width="4"/><path d="M-50 510c390-135 620 120 990-28 330-132 555-130 910-25" fill="none" stroke="#e1e0ff" stroke-opacity=".55" stroke-width="2"/>
+<g fill="none" stroke="#fff" stroke-opacity=".22"><circle cx="450" cy="390" r="180"/><circle cx="900" cy="390" r="180"/><circle cx="1350" cy="390" r="180"/></g>
+</svg>
