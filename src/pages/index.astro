@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import LightSphere from '../components/LightSphere.astro';
+import HumanPresence from '../components/HumanPresence.astro';
 import EmailForm from '../components/EmailForm.astro';
 
 const discoveries = [
@@ -31,7 +31,7 @@ const discoveries = [
         </div>
       </div>
       <div class="hero-visual reveal delay-one">
-        <LightSphere />
+        <HumanPresence />
         <p class="visual-note note-mind">MIND <span>clarity</span></p>
         <p class="visual-note note-heart">HEART <span>intelligence</span></p>
       </div>
@@ -53,7 +53,7 @@ const discoveries = [
 
     <section class="union section-pad" aria-labelledby="union-title">
       <div class="union-visual reveal">
-        <LightSphere compact={true} label="Heart and mind meeting in a central field of consciousness" />
+        <HumanPresence variant="single" label="An androgynous human presence illuminated between mind and heart" />
         <div class="axis-label axis-top"><span>01</span> MENTAL</div>
         <div class="axis-label axis-bottom"><span>02</span> HEART</div>
       </div>
@@ -88,6 +88,7 @@ const discoveries = [
 
     <section class="book section-pad" id="the-book" aria-labelledby="book-title">
       <div class="book-scene reveal" aria-label="Provisional cover of The Thought Revolution">
+        <div class="book-horizon" aria-hidden="true"><span></span></div>
         <div class="book-orbit"></div>
         <div class="book-cover">
           <div class="cover-mark">RÉVÉLA</div>
